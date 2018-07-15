@@ -1,0 +1,224 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://www.eventbriteapi.com/v3/users/me/owned_events/
+  response:
+    body:
+      string: !!binary |
+        H4sIAJmJSlsC/+2Xe2/bNhDAv4qhocEGzDZfehlNhw1th/6zBUWGAd0GgZYom6tEGRRlNyn63Xek
+        LFtWlDTzgGwYGiSBdS/yjsf7WR+9DV9JxY2slLeYfPSq5Z8iNUlaNcqAgH47sRYiUU25FBokuJPU
+        8lbAs486QedjLda8TspKi0QaUdYgzHlRi0+gEVuhjJX89tFTvBRuVSM+WE/v10oX2eQHwc3kJ7la
+        G8+GMmUxqrPRMlGnWm4O2+8C/aitnbJ2k6oxk7xRmeaylmo1ySs9MWsxefn2atZf4PnVi8e6Pf99
+        fvXCbUBm1jUKKYnimNLQBmy0i7c2ZlMv5vPdbjdzWS81VGMmxVzMdzaZ6RJWm7rVpkam74Wpp6eR
+        tlxJc5MMA1pn6+tcT2Nbr9pwbdpyyFLcVsoW2XvV6Goj5i+bZSGVNSuqlLu4BGE6xWhK/GuCFhQt
+        EHJpmHSgxXGrfedSFyo7Z5HgGjGIcc8ioKWttl2k0iuowa1r0KQtdhhQP8KYEOZqlNozE1k/Coqv
+        MVpgf0HCd85kzdXq1MQuFC4oXpCoNeEbnkKtbc+7lu4EiayTtKlNVYLK6Ea0BTaN7WEvrcpNIezy
+        1qXRWqj0xhXil7cufVm3e+s81xy2uyzEUSTVFo4uqVRx090Tm7eCAorEnW1PXK+rXaJFyaWCnjwG
+        MR8SewxJIUtp7Vlkc1jLDO6p7YYkgxr14jgNHOBQ7o7LnaRQyZtXNgXIH6TvXRad2UbLLU9vkloY
+        0+7Da9TeqnWphZai7rkcZMkGSnCSFKi0AOVWZGDD9xFPUt7A9Ui40w5VVlbyTWLWMKIUl8XQIK2K
+        SteJVA+bVo1OXeZtQyVkhva55Fr0a7QVum7njUdnqLUqqlW1b08SQWf6rjX3zSv0XsUiSuKYhTF1
+        l1uoRnQaRijzcduJRqwqfdNqVFMUdnfNclQOQ6nk5kQEpXSpwNSQ948hvpEzaN75ls7biTw/Tp55
+        l5G73inc6KTk9fvjEpWWFhqF0w+GkyxXsMyySV14J31Gv39GXsNvmqmjDp5lCdyo4cO+ZvCpd7nh
+        CcNft9hso1bf8cZUl/bSQZb1RX0ZMs6zNOCRiOIsJAEKcRDQYImhmJxgdzY7mZn1cfNr4ejRPh9H
+        eO/YnjSj9SVB6GJ3yXx0McyO4hSnlKWCRjT3BfJJzBhDzA8Ejxhf2s3yemOBre2EtLtGM5eDyByR
+        ofOPmR9l9uLuh8cnKMEIia9FbSbt9Okhsid9iL7jzsDXo2JIUExiTFAY0hA/EqEGYk2d8ADPQZAz
+        OMimGE8JvcZ4DFFD7ZkcPIQZ5eBQex4HGUBwioiN4vsLPx7h4MEEOAkLsSEHyb0YPMzMAwfhW1Ju
+        vjDwf8/Afak/g8AwCpA/jsCQRMgPgiCOhwgM44jFzL+LQA8j4j2SgZ4Ley4Ce/Pj6Rm4L9rDxFjJ
+        /C4DeUgYClMe+nHGUBz4QZ4SFvNlnIsozR/PwN65PWlGDzEQSC4wElkmfLLMoohwhiI/gH8Y5f4y
+        GmMgnkX03p87dPS+yt3PqeLziHwDg2zyc57DjYbXw69fww35ps+7Uf1D2HQOVecg1eSIjx5D77Ea
+        ApWF8E0hhC8M7U17BFAlBJ52gaf2wh/AOgh2BlijKQrcCyYZY95B+8/AeghDx95ie1ug54O1iwLv
+        wn6wIGwErK2Je5Ol8DKLh2DF6G+Q9V9/w+wUX/D6H8HrAUCnZMWhjyIGvRvdebskPmOUsGiUrdHT
+        sLU3QvpsdQD649NfPDv0HYgUAAA=
+    headers:
+      access-control-allow-headers: ['Authorization, Content-Type']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['600']
+      allow: ['GET, HEAD, OPTIONS']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['1331']
+      content-type: [application/json]
+      date: ['Sat, 14 Jul 2018 23:39:05 GMT']
+      p3p: [CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"]
+      server: [nginx]
+      set-cookie: ['mgrefby=; Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019
+          23:39:05 GMT; httponly; Max-Age=31536000; Path=/; secure', 'G=v%3D2%26i%3D6b7eadf7-6ab7-42bc-be3a-3c9be1a4287b%26a%3Da47%26s%3Dcc9f2d9f36a8e15709368bab5f6d0ff203a22bec;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:05 GMT; httponly;
+          Path=/; secure', 'ebEventToTrack=; Domain=.eventbrite.com; expires=Mon,
+          13-Aug-2018 23:39:05 GMT; httponly; Path=/; secure', SS=AE3DLHQFdJ4XvIhODIGqbo62C64oS2lCpg;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'eblang=lo%3Den_US%26la%3Den-us;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:05 GMT; httponly;
+          Path=/; secure', 'AN=; Domain=.eventbrite.com; expires=Mon, 13-Aug-2018
+          23:39:05 GMT; httponly; Path=/; secure', AS=1e809199-cd71-4b67-b3f1-76ecaa9ea0d3;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'mgref=typeins; Domain=.eventbriteapi.com;
+          expires=Sun, 14-Jul-2019 23:39:05 GMT; httponly; Max-Age=31536000; Path=/;
+          secure', SP=AGQgbbmqOL19K7vLY1eKfTicd9QtFf7iUGT2bHGzRKNMRRLXFtFZPZaejca_o4qMVgByYqFKktovPnbY-Pw3niU0ybws_M7XwkIggE2ALEUgUptv0P7SUWIRVmh6et1-tjH25Zt-IBHBgR1yO5lg_bzFaQ48skYy2BGNHiYJ0WnaJwJfvCVO9yHcVMcv0C-ZF4DaSo6w-3FOWJuwQN70QeTgmv4POIkVFmwtC8-zkpI9DK6Ab41wvwo;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure]
+      strict-transport-security: [max-age=31536000 ; includeSubDomains]
+      vary: ['Accept, Accept-Encoding']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-rate-limit: XXX 5/2000 reset=3550s, key:IE3WBMLJOXK4AWS6TK 5/2000 reset=3550s
+      x-ua-compatible: [IE=edge]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://www.eventbriteapi.com/v3/events/8732899337/attendees/
+  response:
+    body: {string: !!python/unicode '{"pagination": {"object_count": 0, "page_number":
+        1, "page_size": 50, "page_count": 1, "has_more_items": false}, "attendees":
+        []}'}
+    headers:
+      access-control-allow-headers: ['Authorization, Content-Type']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['600']
+      allow: ['GET, HEAD, OPTIONS']
+      connection: [keep-alive]
+      content-type: [application/json]
+      date: ['Sat, 14 Jul 2018 23:39:06 GMT']
+      p3p: [CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"]
+      server: [nginx]
+      set-cookie: ['mgrefby=; Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019
+          23:39:06 GMT; httponly; Max-Age=31536000; Path=/; secure', 'G=v%3D2%26i%3D7cd72388-8de0-4510-b515-64ef2ebb3bf7%26a%3Da47%26s%3D30314f5dde02c29ddc2db87460afc4d473974cc9;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:06 GMT; httponly;
+          Path=/; secure', 'ebEventToTrack=; Domain=.eventbrite.com; expires=Mon,
+          13-Aug-2018 23:39:06 GMT; httponly; Path=/; secure', SS=AE3DLHSPoUXsWJOXLJFgT0HR0zVZlav_8A;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'eblang=lo%3Den_US%26la%3Den-us;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:06 GMT; httponly;
+          Path=/; secure', 'AN=; Domain=.eventbrite.com; expires=Mon, 13-Aug-2018
+          23:39:06 GMT; httponly; Path=/; secure', AS=c450a4c2-cd4f-48d8-ad2b-cb0d05b6e457;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'mgref=typeins; Domain=.eventbriteapi.com;
+          expires=Sun, 14-Jul-2019 23:39:06 GMT; httponly; Max-Age=31536000; Path=/;
+          secure', SP=AGQgbbkfWinShpmXreg3PmtNxKY56QUEfJMaYP9P5WadxNasEn00FSbEQwLoYBTxxlC4l-1vWDDJrN1XreFLpmFgB_BvFExHprDN_Euj-gxIlqIZINf8yHiUhlnBjqd7RM8gq43ArkqOsGVhhftvvZENzkJbhhRxsrnyNkuUaU5fSP5lmgFj_0dEpwpFSTO9-HIfI-Q88rC-lxD0wrZCq59Z4krmJcoN7RDunRU7W15CE_cNoRRE4eU;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure]
+      strict-transport-security: [max-age=31536000 ; includeSubDomains]
+      vary: [Accept]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-rate-limit: XXX 6/2000 reset=3549s, key:IE3WBMLJOXK4AWS6TK 6/2000 reset=3549s
+      x-ua-compatible: [IE=edge]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://www.eventbriteapi.com/v3/events/12912077371/attendees/
+  response:
+    body: {string: !!python/unicode '{"pagination": {"object_count": 0, "page_number":
+        1, "page_size": 50, "page_count": 1, "has_more_items": false}, "attendees":
+        []}'}
+    headers:
+      access-control-allow-headers: ['Authorization, Content-Type']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['600']
+      allow: ['GET, HEAD, OPTIONS']
+      connection: [keep-alive]
+      content-type: [application/json]
+      date: ['Sat, 14 Jul 2018 23:39:07 GMT']
+      p3p: [CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"]
+      server: [nginx]
+      set-cookie: ['mgrefby=; Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019
+          23:39:07 GMT; httponly; Max-Age=31536000; Path=/; secure', 'G=v%3D2%26i%3D5edaa4e2-972d-4505-bc52-4104d81d1c60%26a%3Da47%26s%3D3202b64d99fdc0f103c162e7526031e3812997d3;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly;
+          Path=/; secure', 'ebEventToTrack=; Domain=.eventbrite.com; expires=Mon,
+          13-Aug-2018 23:39:07 GMT; httponly; Path=/; secure', SS=AE3DLHQElOBcx8vSMoaC_8k4mYqCKUSsEw;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'eblang=lo%3Den_US%26la%3Den-us;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly;
+          Path=/; secure', 'AN=; Domain=.eventbrite.com; expires=Mon, 13-Aug-2018
+          23:39:07 GMT; httponly; Path=/; secure', AS=9edc09df-9f2d-4eae-86de-95ad5c72cb8a;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'mgref=typeins; Domain=.eventbriteapi.com;
+          expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly; Max-Age=31536000; Path=/;
+          secure', SP=AGQgbbmJad_VA_ov7bJbfrpsjG-HyBWgHQzGruTqBe_tWX0ZTbb_5jPI-UbA-9ihI8h4VbgIjzksvivkbVZKmTj7VEyshPkfnI-JWZFvwHe54Xh80VmOM2MvmV1Rl4qruTRLkwByCkGnY1p7a0N_YUSVIQwvPLmj7hp5ioXGiAkxMI5XJv1OB6icRaJa7nBDE89_F_Sc4sxEcxQ0thnJnWI4sXLKvlLahArzKqMGhjlS5MQFGxjMIN8;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure]
+      strict-transport-security: [max-age=31536000 ; includeSubDomains]
+      vary: [Accept]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-rate-limit: XXX 7/2000 reset=3549s, key:IE3WBMLJOXK4AWS6TK 7/2000 reset=3549s
+      x-ua-compatible: [IE=edge]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.19.1]
+    method: GET
+    uri: https://www.eventbriteapi.com/v3/events/47440729499/attendees/
+  response:
+    body:
+      string: !!binary |
+        H4sIAJuJSlsC/+2aTY/qNhSG/8oo687gJM6HWbWqurjb6nbTdhSZYMD3Jg61Hbh0NP+9PoYEShhc
+        0Ws2RGKRvD52nPfYj44V3oI1XXJBNW9EMH16C5rZF1bqomxaoY0Qoh+eIIQVoq1nTILUKYr/zcx9
+        0of0nYywoqqoG8kKrlmtjLiglWLvpoVqzcScMRD/eAs0o7W5Em1VmcayUVrZicyoYsVa8pLZ2zlX
+        64ruzHXwZxshWqIXhALo0UrJRGlbfvntV5A2tGqhF0yspl8aWXRKYHvBLNiGCT2TZnbFgvl5xFI2
+        SnkZeU13tZm+t5lr+u37jwsDS6aaVpasaCWHlpXWazWdTLbb7csxI3TNX8qmnmziiRXVBGcYoywi
+        mJBJv34mJI9RlmZRPoEJ8DmM2Gt2misqlszqEQrzZ5Q+R8nnCE0Rnibx7zZEMqo/ColsyF8tFZrr
+        3WFlb6jkRijs8w7Ldi2bBa/2yVhwqXQhaG3f/ZNaURikoidiIxhorKa8gntugp7DH+EW9mIj4fUh
+        4nSUp0MvOp8bGxXbL61VYyPewF214uvuetvIr931jFeVvbY5mFFZNvNu+ylNdQvXQStaZYw4RoCY
+        5SROoizEva8IhXtrWfmVi0Lv1l3Wr1p5cNuRkPdXeEGhtkza+b12T2LzgouOIiBSUbKqskN1mmSL
+        1iyMU4kuTFq4mdUxVcuWKV1x9e8EcrExC29ezHZH7WjNT3bJcbGEd9DcTMcQ0mRU9RkVjaxpFXRg
+        2Y8dnCxbaGrknMlDU2/sYMh9e54bx/M0g/04QnKE5P+DZJbg9BySoF3ck9kzij+HeIrDaZw5IJlO
+        Y+QJknrbDCEZuSB56OUNkh8gMo6TrHf1MiLD/2akKx1ORGrZ3p+QP+9n8PRJfGdEgrEjIkdEekdk
+        HmFyjkjQrpct2TTJHYg0IZkvRK4ku1BJxk5Idv3uX0vGJEx7b2+pJY+OO5LyYLUkGDuCcgSlb1Dm
+        KE+jM1BazVm8kOugDGOzcz2BcmFMGHISuzjZdbt3NZmQPOt9vaGaPFrpSsiDVZNg7AjJEZLeIRmF
+        ITqHJGhXC5cwmeLUAUkTkviCJN9cKCYTJyQP3e5fS6aExL2zN9SSJ347UvJgtSQYO2JyxKR3TMY4
+        Oj90W81VumDkwGQ+jbAnTCr+bUjJ1EXJQ697V5I5ynDv6i2VZG+kKx0PVkmCsSMiR0R6RyROBt+3
+        rXa1bDG/OLqOSAgJfSESXmsIycwJya7f/WvJnCR57+0NteSJ446kPFgtCcaOoBxB6R2USZoNjtyg
+        Xd+TUXee/nhnR/6O3IJf+icQcXGy63Z/TBKCSO/sLZg8+u1IyYNhEowdMTli0jsm0zQdHLlBc57x
+        HJ9vItyFePjOfamaDJHzM7fnYvIyI1OUxaS39YYz99FJVz4e68xtjR0ZOTLSNyNJjgdnbqs596Tj
+        P+U49VdKMr5c6SElcxck+373xiQhadg7ewMmwcwPvt6cpeTBMAnGOjH5+v4PYHOK/PszAAA=
+    headers:
+      access-control-allow-headers: ['Authorization, Content-Type']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['600']
+      allow: ['GET, HEAD, OPTIONS']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['1136']
+      content-type: [application/json]
+      date: ['Sat, 14 Jul 2018 23:39:07 GMT']
+      p3p: [CP="NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM"]
+      server: [nginx]
+      set-cookie: ['mgrefby=; Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019
+          23:39:07 GMT; httponly; Max-Age=31536000; Path=/; secure', 'G=v%3D2%26i%3Dd95baf85-194a-499f-baab-cb337fff4998%26a%3Da47%26s%3Dc3aea7b7c0eb0d0ef32dfea316878c892a8002cf;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly;
+          Path=/; secure', 'ebEventToTrack=; Domain=.eventbrite.com; expires=Mon,
+          13-Aug-2018 23:39:07 GMT; httponly; Path=/; secure', SS=AE3DLHS-dbdd5078OI0xUVzF_Jzl3rPL5w;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'eblang=lo%3Den_US%26la%3Den-us;
+          Domain=.eventbriteapi.com; expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly;
+          Path=/; secure', 'AN=; Domain=.eventbrite.com; expires=Mon, 13-Aug-2018
+          23:39:07 GMT; httponly; Path=/; secure', AS=0ed3afda-d4f3-4911-96c3-8ad428c3074a;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure, 'mgref=typeins; Domain=.eventbriteapi.com;
+          expires=Sun, 14-Jul-2019 23:39:07 GMT; httponly; Max-Age=31536000; Path=/;
+          secure', SP=AGQgbbm7hfmZQ9t_JKl_oV63v9Z6CpW38PXs6IWChjR-MMlsNmByMrohg829K6AxDC7F9whxbxSvvYeKO-nwz90f7G6bTivHwNqn3trWg8TDGKA-26eD25F2hXkFzr4izwV693ixzVOIPC9-Vxt824YB3bNP8WDyjGXiRxLKBiRGBkJnZcqH0DeYACjwlsZhOmz5YWXFur4qcsE7UdJYeRkSTNprJUDeUboNWwXfw9Cv-Yx8W5WirG4;
+          Domain=.eventbriteapi.com; httponly; Path=/; secure]
+      strict-transport-security: [max-age=31536000 ; includeSubDomains]
+      vary: ['Accept, Accept-Encoding']
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-rate-limit: XXX 8/2000 reset=3548s, key:IE3WBMLJOXK4AWS6TK 8/2000 reset=3548s
+      x-ua-compatible: [IE=edge]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
