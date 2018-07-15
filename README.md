@@ -21,5 +21,10 @@ Automation of the management of Free offering session management. Motivated by:
   1. Specify time of emailing
 
 ## Dev
+
+### Env
 1. [pyenv](https://github.com/pyenv/pyenv) and `.python-version` used to track python version.
 2. `pip install -r requirements.txt` to install required packages.
+
+### Test
+`behave`
