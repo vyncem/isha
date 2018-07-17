@@ -27,4 +27,6 @@ Automation of the management of Free offering session management. Motivated by:
 2. `pip install -r requirements.txt` to install required packages.
 
 ### Test
-`behave`
+- To run tests type `behave` in the root directory
+- BDD using [Behave](https://github.com/behave/behave)
+- Simplify and seed up http request using [VCR](https://github.com/kevin1024/vcrpy)
