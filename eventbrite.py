@@ -83,10 +83,10 @@ class EBEvent(object):
         self.venueId = event['venue_id']
 
     def __repr__(self):
-        return "EBEvent()"
+        return '(' + self.name + ' , #' + self.id + ' , ' + str(self.startDate) + ' , ' + self.venueId + ')'
 
     def __str__(self):
-        return '(' + self.name + ' , #' + self.id + ' , ' + self.startDate + ' , ' + self.venueId + ')'
+        return '(' + self.name + ' , #' + self.id + ' , ' + str(self.startDate) + ' , ' + self.venueId + ')'
 
 
 class EBAttandee(object):
