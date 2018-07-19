@@ -26,9 +26,9 @@ def step_impl(context):
 
 @then('I get valid stats')
 def step_impl(context):
-    expected_event = '{"startDate": "2018-06-25T21:00:00Z", "endDate": "2018-06-25T22:30:00Z", "name": "Isha Offering (Free)", "id": "47440729499"}'
-    attending = '{"status": "Attending", "id": "983076728", "cell_phone": null, "name": "Isha one", "email": "isha-1@mailinator.com"}'
-    checked_in = '{"status": "Checked In", "id": "983077546", "cell_phone": null, "name": "Isha two", "email": "isha-2@mailinator.com"}'
+    expected_event = '(Isha Offering (Free) , #47440729499 , 2018-06-25 , 25443248)'
+    attending = '(Isha one , isha-1@mailinator.com , Attending)'
+    checked_in = '(Isha two , isha-2@mailinator.com , Checked In)'
     assert(str(context.event) == expected_event)
     assert((attending in str(context.attendees)) == True)
     assert((checked_in in str(context.attendees)) == True)

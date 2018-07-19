@@ -1,3 +1,6 @@
 behave==1.2.6
+DateTime==4.2
+pycountry==18.5.26
+python-dateutil==2.7.3
 PyYAML==3.13
 vcrpy==1.13.0
