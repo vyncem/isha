@@ -37,14 +37,16 @@ def getEvents(fromLocalDate, toLocalDate, organizerId):
     pageCount = response.json()['pagination']['page_count'];
     evs = [];
     i = 1;
-    print(datetime.strptime(fromLocalDate,'%Y-%m-%dT%H:%M:%SZ').date());
     while i <= pageCount:
         print("page: "+str(i));
         nextResp = executeGet("/users/me/events?page="+str(i));
-        events = response.json()['events']
+        events = nextResp.json()['events']
         for event in events:
-            ev = EBEvent(event);    
-            if ev.startDate in (datetime.strptime(fromLocalDate,'%Y-%m-%dT%H:%M:%SZ').date(), datetime.strptime(fromLocalDate,'%Y-%m-%dT%H:%M:%SZ').date()):
+            ev = EBEvent(event); 
+            fromDt = datetime.strptime(fromLocalDate,'%Y-%m-%d');
+            toDt = datetime.strptime(toLocalDate,'%Y-%m-%d');
+            dt = datetime.strptime(ev.utcDate,'%Y-%m-%dT%H:%M:%SZ');  
+            if fromDt < dt <= toDt:
                 evs.append(ev);
         i += 1;
     return evs;
@@ -54,8 +56,10 @@ def getAttandeesEmailsForEvent(event):
     attendees = response.json()['attendees']
     ebAttandees = []
     for attandee in attendees:
-        ebAttandees.append(EBAttandee(attandee))
-    return ebAttandees
+        attendeeObj = EBAttandee(attandee);
+        if attendeeObj.status == 'Checked In':
+            ebAttandees.append(attendeeObj);
+    return ebAttandees;
 
 
 def getEventCountry(event):
@@ -83,11 +87,11 @@ class EBEvent(object):
     """__init__() functions as the class constructor"""
 
     def __init__(self, event=None):
-        self.name = event['name']['text']
-        self.id = event['id']
-        self.startDate = getRegionDate(
-            event['start']['utc'], event['start']['timezone'])
-        self.venueId = event['venue_id']
+        self.name = event['name']['text'];
+        self.id = event['id'];
+        self.startDate = getRegionDate(event['start']['utc'], event['start']['timezone']);
+        self.venueId = event['venue_id'];
+        self.utcDate = event['start']['utc'];
 
     def __repr__(self):
         return '(' + self.name + ' , #' + self.id + ' , ' + str(self.startDate) + ' , ' + self.venueId + ')'
@@ -107,10 +111,10 @@ class EBAttandee(object):
         self.status = attandee.get('status')
 
     def __repr__(self):
-        return '(' + self.name + ' , ' + self.email + ' , ' + self.status + ')'
+        return '(' + self.name + ' , ' + self.email + ')'
 
     def __str__(self):
-        return '(' + self.name + ' , ' + self.email + ' , ' + self.status + ')'
+        return '(' + self.name + ' , ' + self.email + ')'
 
 
 
@@ -119,13 +123,12 @@ if __name__ == "__main__":
         fieldnames = ['Event', 'Country', 'Date', 'Attendees']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        events = getEvents('2017-05-01T00:00:00Z','2018-07-29T00:00:00Z','14004606792');#datetime.now().strftime('%Y-%m-%dT%H:%M:%S')
+        events = getEvents('2018-06-01','2018-07-21','14004606792');
         for event in events:
             try:
-                # ebAttandees = getAttandeesEmailsForEvent(event)
-                # print("\"%s\"  %s" % (event, ebAttandees));
-                print(event);
-                writer.writerow({'Event': event.name, 'Country': getEventCountry(
+                ebAttandees = getAttandeesEmailsForEvent(event)
+                if ebAttandees:
+                    writer.writerow({'Event': event.name, 'Country': getEventCountry(
                     event), 'Date': event.startDate, 'Attendees': ebAttandees})
             except Exception as e:
                 print(
