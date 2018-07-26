@@ -26,29 +26,40 @@ def executeGet(path):
                         )
     return resp
 
-
-def getEvents():
-    response = executeGet("/users/me/owned_events/")
-
+def getEvents(fromLocalDate, toLocalDate, organizerId):
+    response = executeGet("/users/me/events");
+    # response = executeGet("/events/search?start_date.range_start="
+    #     +fromLocalDateTime+"&start_date.range_end="+toLocalDateTime+"&organizer.id="+organizerId+"&sort_by=date");
     if response.json().get('status_code') != None:
-        print response.json();
-        return []
-
-    events = response.json()['events']
-    evs = []
-    for event in events:
-        ev = EBEvent(event)
-        evs.append(ev)
-    return evs
-
+        print(response.json());
+        return [];
+    events = response.json()['events'];
+    pageCount = response.json()['pagination']['page_count'];
+    evs = [];
+    i = 1;
+    while i <= pageCount:
+        print("page: "+str(i));
+        nextResp = executeGet("/users/me/events?page="+str(i));
+        events = nextResp.json()['events']
+        for event in events:
+            ev = EBEvent(event); 
+            fromDt = datetime.strptime(fromLocalDate,'%Y-%m-%d');
+            toDt = datetime.strptime(toLocalDate,'%Y-%m-%d');
+            dt = datetime.strptime(ev.utcDate,'%Y-%m-%dT%H:%M:%SZ');  
+            if fromDt < dt <= toDt:
+                evs.append(ev);
+        i += 1;
+    return evs;
 
 def getAttandeesEmailsForEvent(event):
     response = executeGet("/events/" + event.id + "/attendees/")
     attendees = response.json()['attendees']
     ebAttandees = []
     for attandee in attendees:
-        ebAttandees.append(EBAttandee(attandee))
-    return ebAttandees
+        attendeeObj = EBAttandee(attandee);
+        if attendeeObj.status == 'Checked In':
+            ebAttandees.append(attendeeObj);
+    return ebAttandees;
 
 
 def getEventCountry(event):
@@ -76,11 +87,11 @@ class EBEvent(object):
     """__init__() functions as the class constructor"""
 
     def __init__(self, event=None):
-        self.name = event['name']['text']
-        self.id = event['id']
-        self.startDate = getRegionDate(
-            event['start']['utc'], event['start']['timezone'])
-        self.venueId = event['venue_id']
+        self.name = event['name']['text'];
+        self.id = event['id'];
+        self.startDate = getRegionDate(event['start']['utc'], event['start']['timezone']);
+        self.venueId = event['venue_id'];
+        self.utcDate = event['start']['utc'];
 
     def __repr__(self):
         return '(' + self.name + ' , #' + self.id + ' , ' + str(self.startDate) + ' , ' + self.venueId + ')'
@@ -100,10 +111,10 @@ class EBAttandee(object):
         self.status = attandee.get('status')
 
     def __repr__(self):
-        return '(' + self.name + ' , ' + self.email + ' , ' + self.status + ')'
+        return '(' + self.name + ' , ' + self.email + ')'
 
     def __str__(self):
-        return '(' + self.name + ' , ' + self.email + ' , ' + self.status + ')'
+        return '(' + self.name + ' , ' + self.email + ')'
 
 
 
@@ -112,11 +123,12 @@ if __name__ == "__main__":
         fieldnames = ['Event', 'Country', 'Date', 'Attendees']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for event in getEvents():
+        events = getEvents('2018-06-01','2018-07-21','14004606792');
+        for event in events:
             try:
                 ebAttandees = getAttandeesEmailsForEvent(event)
-                # print("\"%s\"  %s" % (event, ebAttandees));
-                writer.writerow({'Event': event.name, 'Country': getEventCountry(
+                if ebAttandees:
+                    writer.writerow({'Event': event.name, 'Country': getEventCountry(
                     event), 'Date': event.startDate, 'Attendees': ebAttandees})
             except Exception as e:
                 print(
