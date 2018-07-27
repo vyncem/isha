@@ -1,0 +1,8 @@
+.git
+features
+.gitignore
+.python-version
+*.csv
+*.pyc
+README.md
+Dockerfile

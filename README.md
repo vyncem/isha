@@ -22,6 +22,15 @@ Automation of the management of Free offering session management. Motivated by:
 
 ## Dev
 
+## Dockerization
+### playground
+`docker run -it --rm -v $(pwd):/usr/src/app python:2.7 bash`
+
+### production
+`docker build -t eb .`
+
+`docker run -it --rm -e EVENTBRITE_TOKEN=$EVENTBRITE_TOKEN -v $DATA:/data eb`
+
 ### Env
 1. [pyenv](https://github.com/pyenv/pyenv) and `.python-version` used to track python version.
 2. `pip install -r requirements.txt` to install required packages.

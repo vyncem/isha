@@ -42,10 +42,10 @@ def getEvents(fromLocalDate, toLocalDate, organizerId):
         nextResp = executeGet("/users/me/events?page="+str(i));
         events = nextResp.json()['events']
         for event in events:
-            ev = EBEvent(event); 
+            ev = EBEvent(event);
             fromDt = datetime.strptime(fromLocalDate,'%Y-%m-%d');
             toDt = datetime.strptime(toLocalDate,'%Y-%m-%d');
-            dt = datetime.strptime(ev.utcDate,'%Y-%m-%dT%H:%M:%SZ');  
+            dt = datetime.strptime(ev.utcDate,'%Y-%m-%dT%H:%M:%SZ');
             if fromDt < dt <= toDt:
                 evs.append(ev);
         i += 1;
@@ -119,7 +119,7 @@ class EBAttandee(object):
 
 
 if __name__ == "__main__":
-    with open('events.csv', 'w') as csvfile:
+    with open(os.environ['DATA'] + '/events.csv', 'w') as csvfile:
         fieldnames = ['Event', 'Country', 'Date', 'Attendees']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
