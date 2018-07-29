@@ -1,6 +1,6 @@
 Feature: Pull session stats from Eventbrite
   As an moderator
-  I want to eventbrite users: registered, atteneded and missed
+  I want a list of eventbrite users: registered, atteneded and missed
   So that I note anonymous attendance stats and send thank/missed you emails
 
 
