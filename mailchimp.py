@@ -37,24 +37,26 @@ class MailChimpClient:
     }
 
     # list_id = 'f802ccd729'
-    # list_id = 'fb92bf4a53'
-    list_id = '88eb930db5'
+    list_id = 'fb92bf4a53'
+    # list_id = '88eb930db5'
+
 
     member = {'email_address': 'victor.muia@storyful.com', 'status': 'subscribed'}
 
     # campaign_id = 'a20f061e15'
-    campaign_id = '6c25ca5140'
+    # campaign_id = '6c25ca5140'
+    campaign_id = '2f774e1d1d'
 
     campaign = {
-            'recipients': {
-                'list_id': list_id
-            },
-            'type':'regular',
-            'settings': {
-                'subject_line':'Thank you',
-                'reply_to':'vyncem@gmail.com',
-                'from_name':'Isha'
-            }
+        'recipients': {
+            'list_id': list_id
+        },
+        'type':'regular',
+        'settings': {
+            'subject_line':'Thank you',
+            'reply_to':'vyncem@gmail.com',
+            'from_name':'Isha'
+        }
     }
 
     content = { 'html': '<p>Missed you</p>'}
@@ -97,20 +99,23 @@ if __name__ == '__main__':
 
     ## Create a lists
     # pertty_print(client.lists.create(data=mailchimp.list))
-    pertty_print(client.lists.get(list_id=mailchimp.list_id))
+    # pertty_print(client.lists.get(list_id=mailchimp.list_id))
 
     ## Add list members
     # pertty_print(client.lists.members.create(list_id=mailchimp.list_id, data=mailchimp.member))
-    pertty_print(client.lists.members.all(list_id=mailchimp.list_id, get_all=False))
+    # pertty_print(client.lists.members.all(list_id=mailchimp.list_id, get_all=False))
 
     ## Replicate a campaign and Update recepients list or Create campaign and content
+    # pertty_print(client.campaigns.actions.replicate(campaign_id=mailchimp.campaign_id))
+    # pertty_print(client.campaigns.update(campaign_id=mailchimp.campaign_id, data=mailchimp.campaign))
+
     # pertty_print(client.campaigns.create(data=mailchimp.campaign))
-    pertty_print(client.campaigns.all(get_all=False))
+    # pertty_print(client.campaigns.all(get_all=False))
     # pertty_print(client.campaigns.content.update(campaign_id=mailchimp.campaign_id, data=mailchimp.content))
-    pertty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
+    # pertty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
 
     ## Send campaign
     # pertty_print(client.campaigns.actions.send(campaign_id=mailchimp.campaign_id))
 
     ## Report
-    pertty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
+    # pertty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
