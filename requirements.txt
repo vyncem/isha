@@ -4,4 +4,5 @@ mailchimp3==3.0.4
 pycountry==18.5.26
 python-dateutil==2.7.3
 PyYAML==3.13
+requests==2.19.1
 vcrpy==1.13.0
