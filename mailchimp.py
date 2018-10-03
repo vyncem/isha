@@ -39,12 +39,13 @@ class MailChimpClient:
     # list_id = 'f802ccd729'
     # list_id = 'fb92bf4a53'
     # list_id = '88eb930db5'
-    list_id = '4c10b8599c'
-
-
-    member = {'email_address': 'mailme@kannanv.com', 'status': 'subscribed'}
-    # member = {'email_address': 'diva_kar@yahoo.com', 'status': 'subscribed'}
-    # member = {'email_address': 'Slokendra@yahoo.com', 'status': 'subscribed'}
+    # list_id = '4c10b8599c'
+    # list_id = '981faabbf8' # EBrite_Test
+    list_id = 'e0f6f6d69e' # New Guest List
+    members = [
+        { "merge_fields": { "FNAME": "" }, "email_address": "", "status": "subscribed"},
+        { "merge_fields": { "FNAME": "" }, "email_address": "", "status": "subscribed"}
+    ]
 
     # campaign_id = 'a20f061e15'
     # campaign_id = '6c25ca5140'
@@ -54,6 +55,7 @@ class MailChimpClient:
     # campaign_id = 'a4a5026aec'
     # campaign_id = '105f831048'
     campaign_id = 'ccde2b5510'
+    # campaign_id = '1ffc542966' # ThankYou_TestingPurposeOnly
 
     campaign = {
         "recipients": {
@@ -73,15 +75,36 @@ class MailChimpClient:
         },
         'type':'regular',
         'settings': {
-            "reply_to": "vyncem@gmail.com",
+            "reply_to": "diva_kar@yahoo.com",
             "subject_line": "Join Isha's Events for World Environment Day, 2018",
             "from_name": "Isha Ireland"
         }
     }
 
+    campaign_delivery = {
+        "delivery_status": { "enabled": True },
+        "settings": {
+            "authenticate": True,
+            "auto_footer": False,
+            "auto_tweet": False,
+            "drag_and_drop": True,
+            "fb_comments": True,
+            "folder_id": "",
+            "from_name": "Isha UK",
+            "inline_css": False,
+            "reply_to": "offering.europe@ishafoundation.org",
+            "subject_line": "Welcome to Isha",
+            "template_id": 2000117,
+            "timewarp": False,
+            "title": "ThankYou_TestingPurposeOnly",
+            "to_name": "",
+            "use_conversation": False
+        }
+    }
+
     content = { 'html': '<p>Missed you</p>'}
 
-    subscriber_hash = 'vyncem@gmail.com'
+    subscriber_hash = 'diva_kar@yahoo.com'
 
 def pretty_print(data):
     print(json.dumps(data, indent=4, sort_keys=True))
@@ -93,12 +116,27 @@ if __name__ == '__main__':
     ## Create a lists
     print('### Create List ####')
     # pretty_print(client.lists.create(data=mailchimp.list))
-    pretty_print(client.lists.get(list_id=mailchimp.list_id))
+    # pretty_print(client.lists.get(list_id=mailchimp.list_id))
 
     ## Add list members
     print('### Add list members ####')
-    # pretty_print(client.lists.members.create(list_id=mailchimp.list_id, data=mailchimp.member))
-    pretty_print(client.lists.members.all(list_id=mailchimp.list_id, get_all=False))
+    # for member in mailchimp.members:
+    #     pretty_print(client.lists.members.create(list_id=mailchimp.list_id, data=member))
+    file = open("file","r")
+    for line in file:
+        line = line.replace('\n', '').split('\t')
+        email = line[len(line) - 1]
+        name = line[0]
+        try:
+            if email != '':
+                if name == '':
+                    name = email.split('@')[0]
+                member = { "merge_fields": { "FNAME": name }, "email_address": email, "status": "subscribed"}
+                pretty_print(client.lists.members.create(list_id=mailchimp.list_id, data=member))
+                # print member
+        except Exception as e:
+            print '=== error', e, name, email
+    # pretty_print(client.lists.members.all(list_id=mailchimp.list_id, get_all=False))
 
     ## Replicate a campaign and Update recepients list or Create campaign and content
     print('### Relipcate campaign ####')
@@ -108,19 +146,20 @@ if __name__ == '__main__':
 
     print('### Create campaign ####')
     # pretty_print(client.campaigns.create(data=mailchimp.campaign))
-    pretty_print(client.campaigns.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.update(campaign_id=mailchimp.campaign_id, data=mailchimp.campaign_delivery))
 
     print('### Update content ####')
     # pretty_print(client.campaigns.content.update(campaign_id=mailchimp.campaign_id, data=mailchimp.content))
-    pretty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
 
     ## Send campaign
     print('### Send Campaign ####')
-    pretty_print(client.campaigns.actions.send(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.actions.send(campaign_id=mailchimp.campaign_id))
 
     ## Report
     print('### Report ####')
-    pretty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
 
 
     ## members
