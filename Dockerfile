@@ -16,5 +16,6 @@ ENV DATA=/data
 
 RUN mkdir -p $DATA
 
-#CMD ["./eventbrite.py"]
-CMD ["./mailchimp.py"]
+# CMD ["./eventbrite.py"]
+# CMD ["./mailchimp.py"]
+CMD ["./update_isha_list.py"]
