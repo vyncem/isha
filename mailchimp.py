@@ -108,19 +108,19 @@ if __name__ == '__main__':
 
     print('### Create campaign ####')
     # pretty_print(client.campaigns.create(data=mailchimp.campaign))
-    pretty_print(client.campaigns.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.get(campaign_id=mailchimp.campaign_id))
 
     print('### Update content ####')
     # pretty_print(client.campaigns.content.update(campaign_id=mailchimp.campaign_id, data=mailchimp.content))
-    pretty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
 
     ## Send campaign
     print('### Send Campaign ####')
-    pretty_print(client.campaigns.actions.send(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.campaigns.actions.send(campaign_id=mailchimp.campaign_id))
 
     ## Report
     print('### Report ####')
-    pretty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
+    # pretty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
 
 
     ## members
