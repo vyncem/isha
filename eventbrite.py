@@ -2,34 +2,28 @@
 
 import requests
 import csv
-import os
 import pycountry
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil import tz
-
-
-def writeCsv():
-    with open('names.csv', 'w', newline='') as csvfile:
-        fieldnames = ['name', 'id', 'startDate', 'endDate']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
-        writer.writerow({'first_name': 'Lovely', 'last_name': 'Spam'})
-        writer.writerow({'first_name': 'Wonderful', 'last_name': 'Spam'})
+import securekeys
 
 
 def executeGet(path):
     resp = requests.get("https://www.eventbriteapi.com/v3" + path,
                         headers={
-                            "Authorization": "Bearer " + os.environ['EVENTBRITE_TOKEN'],
+                            "Authorization": "Bearer " + securekeys.retrieve('EVENTBRITE_TOKEN'),
                         }, verify=True,  # Verify SSL certificate
                         )
     return resp
 
+
+"""
+ Fetch event for given date range inclusively
+"""
 def getEvents(fromLocalDate, toLocalDate, organizerId):
-    response = executeGet("/users/me/events");
-    # response = executeGet("/events/search?start_date.range_start="
-    #     +fromLocalDateTime+"&start_date.range_end="+toLocalDateTime+"&organizer.id="+organizerId+"&sort_by=date");
+    url ='/users/me/events'
+    # url=f'/events/search?start_date.range_start={fromLocalDate}T00:00:00&start_date.range_end={toLocalDate}T00:00:00&organizer.id={organizerId}&sort_by=date'
+    response = executeGet(url);
     if response.json().get('status_code') != None:
         print(response.json());
         return [];
@@ -39,17 +33,18 @@ def getEvents(fromLocalDate, toLocalDate, organizerId):
     i = 1;
     while i <= pageCount:
         print("page: "+str(i));
-        nextResp = executeGet("/users/me/events?page="+str(i));
+        nextResp = executeGet(f'{url}?page={str(i)}');
         events = nextResp.json()['events']
         for event in events:
             ev = EBEvent(event);
             fromDt = datetime.strptime(fromLocalDate,'%Y-%m-%d');
-            toDt = datetime.strptime(toLocalDate,'%Y-%m-%d');
+            toDt = datetime.strptime(toLocalDate,'%Y-%m-%d') + timedelta(days=1); #added one day to date to make rang inclusive
             dt = datetime.strptime(ev.utcDate,'%Y-%m-%dT%H:%M:%SZ');
-            if fromDt < dt <= toDt:
+            if fromDt < dt < toDt:
                 evs.append(ev);
         i += 1;
     return evs;
+
 
 def getAttandeesEmailsForEvent(event):
     response = executeGet("/events/" + event.id + "/attendees/")
@@ -116,26 +111,23 @@ class EBAttandee(object):
     def __str__(self):
         return '(' + self.name + ' , ' + self.email + ')'
 
-
-
-if __name__ == "__main__":
-    with open(os.environ['DATA'] + '/events.csv', 'w') as csvfile:
-        fieldnames = ['Event', 'Country', 'Date', 'Attendees']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        events = getEvents('2018-06-01','2018-07-21','14004606792');
-        for event in events:
-            try:
-                ebAttandees = getAttandeesEmailsForEvent(event)
-                if ebAttandees:
-                    writer.writerow({'Event': event.name, 'Country': getEventCountry(
-                    event), 'Date': event.startDate, 'Attendees': ebAttandees})
-            except Exception as e:
-                print(
-                    'Error [' + str(e) + '] while fetching info for event : ' + str(event))
-                writer.writerow({'Event': event.name, 'Country': 'error while getting country',
-                                 'Date': event.startDate, 'Attendees': 'error while getting attandees'})
-        csvfile.close()
-
-    # print(response.json());
-    #print(map(lambda ev: ev['name'], events))
+# if __name__ == "__main__":
+#     securekeys.load()
+#     with open('events.csv', 'w') as csvfile:
+#         fieldnames = ['Event', 'Country', 'Date', 'Attendees']
+#         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#         writer.writeheader()
+#         events = getEvents('2018-07-14','2018-07-16',securekeys.retrieve('EVENTBRITE_ORG_ID'));
+#         for event in events:
+#             print(f'name: {event.name}, date: {event.startDate}')
+#             try:
+#                 ebAttandees = getAttandeesEmailsForEvent(event)
+#                 if ebAttandees:
+#                     writer.writerow({'Event': event.name, 'Country': getEventCountry(
+#                     event), 'Date': event.startDate, 'Attendees': ebAttandees})
+#             except Exception as e:
+#                 print(
+#                     'Error [' + str(e) + '] while fetching info for event : ' + str(event))
+#                 writer.writerow({'Event': event.name, 'Country': 'error while getting country',
+#                                  'Date': event.startDate, 'Attendees': 'error while getting attandees'})
+#         csvfile.close()
