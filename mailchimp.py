@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
-import os
 from mailchimp3 import MailChimp
 import json
+import securekeys
+
 
 class MailChimpClient:
     def __init__(self):
-        self.client = MailChimp(mc_api = os.environ['MAILCHIMP_TOKEN'],
-                                mc_user = 'vykta')
+        self.client = MailChimp(mc_api=securekeys.retrieve('MAILCHIMP_TOKEN'),
+                                mc_user='vykta')
 
     # def create_list(self, data = list):
     #     client.lists.create(data = data)
@@ -29,9 +30,9 @@ class MailChimpClient:
         'permission_reminder': 'Do it',
         'campaign_defaults': {
             'from_name': 'Isha',
-            'from_email':'mailme@kannanv.com',
-            'subject':'',
-            'language':'en'
+            'from_email': 'mailme@kannanv.com',
+            'subject': '',
+            'language': 'en'
         },
         'email_type_option': True
     }
@@ -40,7 +41,6 @@ class MailChimpClient:
     # list_id = 'fb92bf4a53'
     # list_id = '88eb930db5'
     list_id = '4c10b8599c'
-
 
     member = {'email_address': 'mailme@kannanv.com', 'status': 'subscribed'}
     # member = {'email_address': 'diva_kar@yahoo.com', 'status': 'subscribed'}
@@ -71,7 +71,7 @@ class MailChimpClient:
             },
             "segment_text": "new only"
         },
-        'type':'regular',
+        'type': 'regular',
         'settings': {
             "reply_to": "vyncem@gmail.com",
             "subject_line": "Join Isha's Events for World Environment Day, 2018",
@@ -79,12 +79,14 @@ class MailChimpClient:
         }
     }
 
-    content = { 'html': '<p>Missed you</p>'}
+    content = {'html': '<p>Missed you</p>'}
 
     subscriber_hash = 'vyncem@gmail.com'
 
+
 def pretty_print(data):
     print(json.dumps(data, indent=4, sort_keys=True))
+
 
 if __name__ == '__main__':
     mailchimp = MailChimpClient()
@@ -122,7 +124,6 @@ if __name__ == '__main__':
     print('### Report ####')
     # pretty_print(client.reports.get(campaign_id=mailchimp.campaign_id))
 
-
     ## members
     print('### Members ####')
     # pretty_print(client.lists.members.delete(list_id=mailchimp.list_id, subscriber_hash=mailchimp.subscriber_hash))
@@ -149,7 +150,6 @@ if __name__ == '__main__':
     print('### Content ####')
     # pretty_print(client.campaigns.content.update(campaign_id=mailchimp.campaign_id, data=mailchimp.content))
     # pretty_print(client.campaigns.content.get(campaign_id=mailchimp.campaign_id))
-
 
     ## send
     print('### Send ####')
