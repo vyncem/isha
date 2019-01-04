@@ -2,7 +2,7 @@
 
 require 'net/smtp'
 
-RECEPIENTS=['vyncem@gmail.com', 'offering.europe@ishafoundation.org', 'ishaktijaiswal13@gmail.com']
+RECEPIENTS=['vyncem@gmail.com', 'offering.europe@ishafoundation.org', 'shaktijaiswal13@gmail.com']
 
 message = <<MESSAGE_END
 From: Automation  <automation@achillesmail.com>
