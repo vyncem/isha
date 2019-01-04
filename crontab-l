@@ -1,0 +1,1 @@
+0 22 * * 1,3,5 ~/free-offering/run_free_offering_email.sh
